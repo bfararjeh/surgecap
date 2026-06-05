@@ -1,5 +1,5 @@
 export type TileType = 
-  | "drain"
+  | "charge"
   | "amp_next"
   | "amp_global"
   | "blocked"
@@ -10,6 +10,6 @@ export interface Tile {
 }
 
 export interface Puzzle {
-  drain_target: number
+  charge_target: number
   grid: Tile[][]
 }
