@@ -1,6 +1,5 @@
 export type TileType = 
   | "drain"
-  | "drain_x_tiles"
   | "negate_next"
   | "double_next"
   | "halve_next"
@@ -18,5 +17,6 @@ export interface Tile {
 export interface Puzzle {
   id: number
   drain_target: number
+  grid_size: 3,
   grid: Tile[][] // 3x3 for now
 }

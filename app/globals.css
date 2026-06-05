@@ -5,11 +5,31 @@
   gap: 8px;
 }
 
-.tile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #333;
-  color: white;
-  font-size: 24px;
+[class^="tile-"] {
+  cursor: pointer;
+  touch-action: manipulation;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+.tile-blocked {
+    border: 2px solid black;
+    background-color: #333;
+    cursor: default;
+}
+.tile-default {
+    border: 2px solid white;
+    background-color: #aaa;
+}
+.tile-played {
+    border: 2px solid yellow;
+    box-shadow: 0 0 8px yellow;
+}
+.tile-recent {
+    border: 2px solid red;
+    box-shadow: 0 0 8px red;
+}
+.tile-valid {
+    border: 2px solid cyan;
+    box-shadow: 0 0 8px cyan;
 }
