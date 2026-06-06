@@ -1,0 +1,64 @@
+<svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="circle">
+      <circle cx="45" cy="45" r="45"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circle)">
+
+    <!-- cell backgrounds -->
+    <rect x="0"  y="0"  width="30" height="30" fill="#1a1a2e"/>
+    <rect x="30" y="0"  width="30" height="30" fill="#1a1a2e"/>
+    <rect x="60" y="0"  width="30" height="30" fill="#1a1a2e"/>
+    <rect x="0"  y="30" width="30" height="30" fill="#1a1a2e"/>
+    <rect x="30" y="30" width="30" height="30" fill="#1a1a2e"/>
+    <rect x="60" y="30" width="30" height="30" fill="#1a1a2e"/>
+    <rect x="0"  y="60" width="30" height="30" fill="#1a1a2e"/>
+    <rect x="30" y="60" width="30" height="30" fill="#1a1a2e"/>
+    <rect x="60" y="60" width="30" height="30" fill="#1a1a2e"/>
+
+    <!-- vertical edge x=30 (charge|amp_next split) -->
+    <rect x="29" y="0"  width="1" height="30" fill="#00cc66"/>
+    <rect x="30" y="0"  width="1" height="30" fill="#ff9900"/>
+    <!-- vertical edge x=30 (amp_global|charge split) -->
+    <rect x="29" y="30" width="1" height="30" fill="#cc00ff"/>
+    <rect x="30" y="30" width="1" height="30" fill="#00cc66"/>
+    <!-- vertical edge x=30 (charge|amp_global split) -->
+    <rect x="29" y="60" width="1" height="30" fill="#00cc66"/>
+    <rect x="30" y="60" width="1" height="30" fill="#cc00ff"/>
+
+    <!-- vertical edge x=60 (amp_next|charge split) -->
+    <rect x="59" y="0"  width="1" height="30" fill="#ff9900"/>
+    <rect x="60" y="0"  width="1" height="30" fill="#00cc66"/>
+    <!-- vertical edge x=60 (charge|amp_next split) -->
+    <rect x="59" y="30" width="1" height="30" fill="#00cc66"/>
+    <rect x="60" y="30" width="1" height="30" fill="#ff9900"/>
+    <!-- vertical edge x=60 (amp_global|charge split) -->
+    <rect x="59" y="60" width="1" height="30" fill="#cc00ff"/>
+    <rect x="60" y="60" width="1" height="30" fill="#00cc66"/>
+
+    <!-- horizontal edge y=30 (charge|amp_global split) -->
+    <rect x="0"  y="29" width="30" height="1" fill="#00cc66"/>
+    <rect x="0"  y="30" width="30" height="1" fill="#cc00ff"/>
+    <!-- horizontal edge y=30 (amp_next|charge split) -->
+    <rect x="30" y="29" width="30" height="1" fill="#ff9900"/>
+    <rect x="30" y="30" width="30" height="1" fill="#00cc66"/>
+    <!-- horizontal edge y=30 (charge|amp_next split) -->
+    <rect x="60" y="29" width="30" height="1" fill="#00cc66"/>
+    <rect x="60" y="30" width="30" height="1" fill="#ff9900"/>
+
+    <!-- horizontal edge y=60 (amp_global|charge split) -->
+    <rect x="0"  y="59" width="30" height="1" fill="#cc00ff"/>
+    <rect x="0"  y="60" width="30" height="1" fill="#00cc66"/>
+    <!-- horizontal edge y=60 (charge|amp_global split) -->
+    <rect x="30" y="59" width="30" height="1" fill="#00cc66"/>
+    <rect x="30" y="60" width="30" height="1" fill="#cc00ff"/>
+    <!-- horizontal edge y=60 (amp_next|charge split) -->
+    <rect x="60" y="59" width="30" height="1" fill="#ff9900"/>
+    <rect x="60" y="60" width="30" height="1" fill="#00cc66"/>
+
+    <!-- outer border -->
+    <rect x="0" y="0" width="90" height="90" fill="none" stroke="#00cc66" stroke-width="2"/>
+
+  </g>
+</svg>
