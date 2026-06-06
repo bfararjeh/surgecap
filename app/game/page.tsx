@@ -7,8 +7,9 @@ import { Tile } from "@/src/types"
 import { playPing, playWin, playLose, playButton, playReset, toggleMusic, toggleSfx, initAudio } from "@/src/audio"
 import { saveProgress } from "@/src/progress"
 import { useRouter } from "next/navigation"
+import { Suspense } from "react"
 
-export default function Game() {
+function Game() {
 
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -440,4 +441,12 @@ export default function Game() {
         </div>
     </main>
   )
+}
+
+export default function GamePage() {
+    return (
+        <Suspense fallback={null}>
+            <Game />
+        </Suspense>
+    )
 }
