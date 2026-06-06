@@ -34,12 +34,11 @@ main {
 }
 
 .spark-container {
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: 0;
     overflow: hidden;
     pointer-events: none;
-	margin-bottom: 3%;
 }
 
 @keyframes spark {
@@ -195,7 +194,7 @@ footer a {
     border: 2px solid;
 }
 
-/* Cyan — charge button */
+/* yellow - charge button */
 .game-button-charge {
     color: #ffff33;
     border-color: #ffff33;
@@ -205,7 +204,7 @@ footer a {
     box-shadow: 0 0 4px #ffff33, 0 0 8px #ffff33, inset 0 0 3px rgba(255, 251, 0, 0.2);
 }
 
-/* Green — next button */
+/* Green - next button */
 .game-button-next {
     color: #00ff88;
     border-color: #00ff88;
@@ -215,7 +214,20 @@ footer a {
     box-shadow: 0 0 4px #00ff88, 0 0 8px #00ff88, inset 0 0 3px rgba(0, 255, 136, 0.2);
 }
 
-/* Red — reset button */
+/* white - option button */
+.game-button-option {
+    height: 35px;
+    width: 80px;
+    padding: 0;
+    color: #c5c5c5;
+    border-color: #c5c5c5;
+}
+.game-button-option:hover {
+    background: rgba(192, 192, 192, 0.1);
+    box-shadow: 0 0 4px #c5c5c5, 0 0 8px #c5c5c5, inset 0 0 3px rgba(192, 192, 192, 0.3);
+}
+
+/* red - reset button */
 .game-button-reset {
     color: #ff5e5e;
     border-color: #ff5e5e;
@@ -263,31 +275,42 @@ footer a {
 	cursor: default;
 }
 .tile-charge {
-	border: 4px solid #00ff4c;
-	background-color: #1a1a2e;
+    --animate-colour: #d9ff00;
+    --played-colour: #17529e;
+    --recent-colour: #ffffff;
+    border: 4px solid #00ff4c;
+    background-color: #1a1a2e;
 }
+
 .tile-next-amp {
-	border: 4px solid #ff6600;
-	background-color: #1a1a2e;
+    --animate-colour: #ff0800;
+    --played-colour: #ff7300;
+    --recent-colour: #ffd8ae;
+    border: 4px solid #ffd000;
+    background-color: #1a1a2e;
 }
+
 .tile-global-amp {
-	border: 4px solid #cc00ff;
-	background-color: #1a1a2e;
+    --animate-colour: #ff0055;
+    --played-colour: #c40f9c;
+    --recent-colour: #ffaae4;
+    border: 4px solid #cc00ff;
+    background-color: #1a1a2e;
 }
 
 .tile-played {
-	border: 4px solid #3361b6;
-	box-shadow: 0 0 8px #3361b6;
+	border: 4px solid var(--played-colour);
+	box-shadow: 0 0 8px var(--played-colour);
 }
 
 .tile-recent {
-	border: 4px solid #FFFFFF;
-	box-shadow: 0 0 8px #FFFFFF;
+	border: 4px solid var(--recent-colour);
+	box-shadow: 0 0 8px var(--recent-colour);
 }
 
 .tile-animating {
-	border: 4px solid #e5ff00;
-	box-shadow: 0 0 8px #e5ff00;
+    border: 4px solid var(--animate-colour);
+    box-shadow: 0 0 8px var(--animate-colour);
 }
 
 .tube-played {

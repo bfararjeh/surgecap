@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import { puzzles } from "@/src/puzzles"
 import { Tile } from "@/src/types"
+import { initAudio, playPing, playWin, playLose, playButton, playReset, toggleMusic, toggleSfx } from "@/src/audio"
 
 export default function Game() {
 
@@ -19,9 +20,8 @@ export default function Game() {
 
   const [tileSize, setTileSize] = useState(100)
   const GAP = 25
-
-  // constant check tilesie
-  useEffect(() => {
+  
+  useEffect(() => { // constant check tilesie
     function calculate() {
         setTileSize(Math.min(100, Math.floor((window.innerWidth * 0.8) / gridSize)))
     }
@@ -50,6 +50,8 @@ export default function Game() {
     )
   )
 
+  const [musicMuted, setMusicMuted] = useState(false)
+  const [sfxMuted, setSfxMuted] = useState(false)
 
   // game logic
 
@@ -97,9 +99,8 @@ export default function Game() {
     }
 
     if (validClick) {
+      playButton()
       setPlayedTiles([...playedTiles, [rowIndex, colIndex]])
-    } else {
-      console.log("Invalid click") // do something nicer later
     }
   }
 
@@ -127,6 +128,7 @@ export default function Game() {
 
   function handleReset() {
     if (isAnimating) return
+    playReset()
     setPlayedTiles([])
     setDisplayTotal(0)
     setAnimatedTotal(0)
@@ -195,14 +197,21 @@ export default function Game() {
       if (currentStep >= playedTiles.length) {
           const total = calculateTotal(playedTiles)
           setScore(total)
-          setGameStatus(total === puzzle.charge_target ? "won" : "lost")
+          if (total === puzzle.charge_target) {
+              setGameStatus("won")
+              playWin()
+          } else {
+              setGameStatus("lost")
+              playLose()
+          }
           setIsAnimating(false)
           setCurrentStep(null)
           return
       }
       setDisplayTotal(calculateTotal(playedTiles.slice(0, currentStep + 1)))
+      playPing(currentStep)
       const timer = setTimeout(() => {
-          setCurrentStep(prev => prev !== null ? prev + 1 : null)
+        setCurrentStep(prev => prev !== null ? prev + 1 : null)
       }, 500)
       return () => clearTimeout(timer)
   }, [currentStep])
@@ -385,12 +394,26 @@ export default function Game() {
                   ? <button onClick={() => handleNext()} className="game-button-next">Next</button>
                   : <button
                       onClick={() => handleSubmit()}
-                      disabled={playedTiles.length === 0 || checkSubmitValidity()}
+                      disabled={playedTiles.length === 0 || checkSubmitValidity() || isAnimating || gameStatus !== "playing"}
                       className="game-button-charge"
                     >
                       Charge
                     </button>
               }
+          </div>
+          <div className="detail-buttons">
+            <button
+                onClick={() => setMusicMuted(toggleMusic())}
+                className="game-button-option"
+                >
+                {musicMuted ? "♪ off" : "♪ on"}
+            </button>
+            <button
+                onClick={() => setSfxMuted(toggleSfx())}
+                className="game-button-option"
+                >
+                {sfxMuted ? "sfx off" : "sfx on"}
+            </button>
           </div>
         </div>
     </main>

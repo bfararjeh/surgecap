@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
+import { initAudio } from "@/src/audio"
 
 export default function Home() {
   const router = useRouter()
@@ -11,6 +12,7 @@ export default function Home() {
 	useEffect(() => {
     if (holdProgress >= 100) {
         router.push("/game")
+		initAudio()
     }
 	}, [holdProgress])
 
